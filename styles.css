@@ -1,0 +1,147 @@
+:root {
+  --ourColor: rgb(16, 35, 114);
+  --transparentColor: rgb(16, 35, 114, 0.3);
+  --transparentRed: rgb(236, 0, 0, 0.6);
+}
+body {
+  text-align: center;
+  margin: 0;
+  background-color: #102372;
+  /* width: 100%;
+  height: 100vh; */
+}
+
+.color {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.img {
+  position: absolute;
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.backimg {
+  position: absolute;
+  z-index: -200;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.content {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+}
+.pure {
+  background-color: var(--ourColor);
+}
+.impure {
+  background-color: var(--transparentColor);
+}
+.warning {
+  background-color: var(--transparentRed);
+}
+.container {
+  width: 50%;
+  max-width: 500px;
+}
+#level-title {
+  display: inline-block;
+  font-family: "PT Sans";
+  font-size: 7rem;
+  font-weight: 700;
+  margin: 5%;
+  color: rgb(72, 227, 255);
+}
+.row {
+  margin-bottom: 10%;
+}
+.btnn {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+.hidden {
+  opacity: 0;
+}
+.one {
+  background-image: url("img/4th.webp");
+}
+.two {
+  background-image: url("img/10th.jpg");
+}
+.three {
+  background-image: url("img/10thn11th.jpg");
+}
+.four {
+  background-image: url("img/12th.webp");
+}
+.btnn:hover {
+  opacity: 0.8;
+}
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px 5px white;
+  background-image: url("./img/tardis.jpg");
+  background-size: 100%;
+}
+@media screen and (max-width: 872px) {
+  #level-title {
+    font-size: 5rem;
+    margin: 100px;
+  }
+  .container {
+    width: 90%;
+  }
+  .row {
+    margin: 4%;
+  }
+}
+@media screen and (max-width: 618px) {
+  #level-title {
+    font-size: 4rem;
+  }
+  .btnn {
+    width: 150px;
+    height: 150px;
+  }
+  .container {
+    width: 60%;
+  }
+}
+.navbar {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem !important;
+}
+.nav-link {
+  font-size: 2rem;
+  color: orange !important;
+}
