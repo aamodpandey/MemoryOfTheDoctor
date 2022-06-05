@@ -218,6 +218,9 @@ footer {
     margin-left: 4rem;
     margin-right: 4rem;
   }
+  .wrapper {
+    margin-bottom: -2rem;
+  }
 }
 @media screen and (max-width: 440px) {
   #level-title {
@@ -234,8 +237,5 @@ footer {
   }
   footer {
     margin-top: 2rem;
-  }
-  .wrapper {
-    margin-bottom: -2rem;
   }
 }
