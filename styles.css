@@ -1,14 +1,12 @@
 :root {
-  --ourColor: rgb(16, 35, 114);
-  --transparentColor: rgb(16, 35, 114, 0.3);
+  --ourColor: #0745ff;
+  --transparentColor: rgb(7, 69, 255, 0.3);
   --transparentRed: rgb(236, 0, 0, 0.6);
 }
 body {
   text-align: center;
   margin: 0;
-  background-color: #102372;
-  /* width: 100%;
-  height: 100vh; */
+  background-color: var(--ourColor);
 }
 
 .color {
@@ -55,7 +53,7 @@ body {
   font-size: 7rem;
   font-weight: 700;
   margin: 5%;
-  color: rgb(72, 227, 255);
+  color: #07c1ff;
 }
 .row {
   margin-bottom: 10%;
@@ -109,21 +107,89 @@ body {
   background-image: url("./img/tardis.jpg");
   background-size: 100%;
 }
+
+.navbar {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 3rem !important;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+.Gallifrey {
+  animation: color-change ease-in-out 2.5s infinite;
+  color: #ff4507;
+}
+
+@keyframes color-change {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+.nav-link * {
+  margin-bottom: -0.1rem;
+}
+.nav-icon {
+  margin-top: -10px;
+  height: 60px;
+}
+.wrapper {
+  position: relative;
+  padding-bottom: 4rem;
+  max-height: 100vh;
+  overflow: hidden;
+}
+footer {
+  font-family: "Montserrat";
+}
+.tap {
+  max-width: 275px;
+}
+.tap:hover {
+  box-shadow: 0 0 4px 4px white;
+}
 @media screen and (max-width: 872px) {
   #level-title {
     font-size: 5rem;
-    margin: 100px;
+    margin: 80px;
   }
   .container {
-    width: 90%;
-  }
-  .row {
-    margin: 4%;
+    width: 70%;
   }
 }
-@media screen and (max-width: 618px) {
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .nav-link {
+    margin-top: 1rem;
+  }
+  .tap {
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 643px) {
   #level-title {
     font-size: 4rem;
+  }
+  .press {
+    display: none;
+  }
+  .navbar {
+    justify-content: center;
+  }
+  .navbar-brand {
+    margin-bottom: 4px;
   }
   .btnn {
     width: 150px;
@@ -132,16 +198,41 @@ body {
   .container {
     width: 60%;
   }
+  .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar-toggler {
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+  .nav-link {
+    margin-left: 10%;
+  }
 }
-.navbar {
-  padding-left: 2rem;
-  padding-right: 2rem;
+@media screen and (max-width: 530px) {
+  .row {
+    --bs-gutter-x: 4rem;
+  }
+  .container {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
 }
-.navbar-brand {
-  font-family: "Ubuntu";
-  font-size: 2.5rem !important;
-}
-.nav-link {
-  font-size: 2rem;
-  color: orange !important;
+@media screen and (max-width: 440px) {
+  #level-title {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .btnn {
+    width: 100px;
+    height: 100px;
+  }
+  .row {
+    --bs-gutter-x: 0;
+    margin: auto;
+  }
+  footer {
+    margin-top: 2rem;
+  }
 }

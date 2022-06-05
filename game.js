@@ -3,6 +3,7 @@ function doo() {
   no = Math.trunc(Math.random() * 10) % 4;
   return no;
 }
+
 arr = $(".btnn");
 function flash(arr, id) {
   let e = $(arr[id]);
@@ -10,10 +11,7 @@ function flash(arr, id) {
   e.fadeIn();
 }
 function oveflowAdjust() {
-  dheight = $(document).height();
-  $(".color").height(dheight);
-  $(".img").height(dheight);
-  $(".backimg").height(dheight);
+  $(".wrapper").height("100vh");
 }
 classapplied = "";
 d = { 1: "one", 2: "two", 3: "three", 4: "four" };
@@ -61,7 +59,9 @@ function refactor() {
   function leveler() {
     $("h1").text("Level " + lvl);
   }
-  $("body").keypress(() => {
+  oveflowAdjust();
+
+  function run() {
     $("body").unbind("keypress");
     repetitive();
     leveler();
@@ -77,6 +77,7 @@ function refactor() {
       $(".btnn").click((e) => {
         let audio = new Audio("./sounds/TARDIS.mp3");
         audio.play();
+        oveflowAdjust();
         buttonPressed(e);
         color = e.target.id;
         num = colors.findIndex((a) => {
@@ -87,7 +88,6 @@ function refactor() {
           h1 = "Gameover! Press any key to restart.";
           (lvl = 0), (c = 0);
           grecord = [];
-          oveflowAdjust();
           flashNrestore(h1);
           $("body").keypress(() => {
             setTimeout(() => {
@@ -124,6 +124,17 @@ function refactor() {
       });
     }
     checkClick();
-  });
+  }
+  mobile = false;
+  if ($(".tap").css("display") != "none") mobile = true;
+  if (!mobile)
+    $("body").keypress(() => {
+      run();
+    });
+  else
+    $(".tap").click(() => {
+      $(".tap").unbind("click");
+      run();
+    });
 }
 refactor();
