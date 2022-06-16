@@ -100,7 +100,10 @@ function refactor() {
         });
         if (num != grecord[c]) {
           tardis.pause();
-          document.getElementById("audio").play();
+          let g = document.getElementById("audio");
+          g.currentTime = 0;
+          g.volume = 1;
+          g.play();
           if (!mobile) h1 = "Gameover! Press any key to restart.";
           else h1 = "Gameover! Tap to restart";
           (lvl = 0), (c = 0);

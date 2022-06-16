@@ -7,6 +7,11 @@
     <title>Simon</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="./img/10th.jpg" />
+    <link rel="preload" as="image" href="./img//10thn11th.jpg" />
+    <link rel="preload" as="image" href="./img//12th.webp" />
+    <link rel="preload" as="image" href="./img/4th.webp" />
+    <link rel="preload" as="sound" href="./sounds/TARDIS.mp3" />
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Ubuntu:wght@500&family=Montserrat:wght@400&display=swap"
       rel="stylesheet"
@@ -22,7 +27,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <audio src="./sounds/crash.mp3" id="audio"></audio>
+      <audio preload="auto" src="./sounds/crash.mp3" id="audio"></audio>
       <div class="container-fluid" style="padding: 0">
         <div
           class="navbar navbar-expand-md bg-gradient bg-warning justify-content-between"
