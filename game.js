@@ -3,26 +3,24 @@ function doo() {
   no = Math.trunc(Math.random() * 10) % 4;
   return no;
 }
-
+let tardis;
+mobile = false;
+if ($(".tap").css("display") != "none") mobile = true;
 arr = $(".btnn");
 function flash(arr, id) {
   let e = $(arr[id]);
   e.fadeOut();
   e.fadeIn();
 }
-function oveflowAdjust() {
-  $(".wrapper").height("100vh");
-}
+
 classapplied = "";
 d = { 1: "one", 2: "two", 3: "three", 4: "four" };
 function imgColor(id) {
   if (d[id] == classapplied) return;
-  console.log("imgcolr called");
   if (classapplied == "") classapplied = d[id];
   $(".img").addClass(d[id]);
-  $(".img").css("opacity", "0");
+  $(".img").css("opacity", "0.5");
   if (d[id] != classapplied) {
-    console.log("inside", classapplied, d[id]);
     $(".img").removeClass(classapplied);
   }
   $(".img").animate({ opacity: 1 }, 1000);
@@ -30,22 +28,39 @@ function imgColor(id) {
   classapplied = d[id];
 }
 origtext = "Level 1";
-function flashNrestore(newtext) {
-  let bgcolor = $("body").css("background-color");
-  $("body").animate(
-    {
-      backgroundColor: "red",
-    },
-    500
-  );
-  $("h1").text(newtext);
-  oveflowAdjust();
-  $("body").keypress(() => {
+async function flashNrestore(newtext) {
+  async function funnyfun() {
+    $("#audio").animate({ volume: 0.0 }, 1500);
+    setTimeout(() => {
+      document.getElementById("audio").pause();
+    }, 1500);
+    $(".tap").css("max-width", "275px");
     $("h1").text(origtext);
-    $("body").animate({ backgroundColor: bgcolor }, 500);
-    $(".color").removeClass("warning");
-    $("body").unbind("keypress");
-  });
+    $(".color").css("background-color", "");
+    dum = $(".img").attr("class").split(/\s+/);
+    $(".img").removeClass(dum[1]);
+    $(".img").css("background-image", "");
+  }
+  let bgcolor = $("body").css("background-color");
+  $(".color").addClass("transit");
+  $(".color").css("background-color", "rgba(255, 0, 0, 0.5)");
+  if (mobile) {
+    $("h1").html(interiortext);
+    $("h1 button").text(newtext);
+    $(".tap").css("max-width", "1000px");
+  }
+  if (!mobile) {
+    $("h1").text(newtext);
+    $("body").keypress(() => {
+      funnyfun();
+      $("body").unbind("keypress");
+    });
+  } else {
+    $("h1 button").click(() => {
+      funnyfun();
+      $("body").unbind("click");
+    });
+  }
 }
 let grecord = [];
 lvl = 1;
@@ -56,11 +71,11 @@ function refactor() {
     flash(arr, b);
     grecord.push(b);
   }
+  interiortext = "";
+  interiortext = $("h1").html();
   function leveler() {
     $("h1").text("Level " + lvl);
   }
-  oveflowAdjust();
-
   function run() {
     $("body").unbind("keypress");
     repetitive();
@@ -75,17 +90,19 @@ function refactor() {
     }
     function checkClick() {
       $(".btnn").click((e) => {
-        let audio = new Audio("./sounds/TARDIS.mp3");
-        audio.play();
-        oveflowAdjust();
+        if (tardis) tardis.pause();
+        tardis = new Audio("./sounds/TARDIS.mp3");
+        tardis.play();
         buttonPressed(e);
         color = e.target.id;
         num = colors.findIndex((a) => {
           return a == color;
         });
         if (num != grecord[c]) {
-          $(".color").addClass("warning");
-          h1 = "Gameover! Press any key to restart.";
+          tardis.pause();
+          document.getElementById("audio").play();
+          if (!mobile) h1 = "Gameover! Press any key to restart.";
+          else h1 = "Gameover! Tap to restart";
           (lvl = 0), (c = 0);
           grecord = [];
           flashNrestore(h1);
@@ -94,6 +111,12 @@ function refactor() {
               repetitive();
               $("body").unbind("keypress");
             }, 800);
+          });
+          $(".tap").click(() => {
+            setTimeout(() => {
+              repetitive();
+              $(".tap").unbind("click");
+            });
           });
           return;
         } else {
@@ -117,7 +140,6 @@ function refactor() {
           setTimeout(() => {
             c = 0;
             leveler();
-            oveflowAdjust();
             repetitive();
           }, 1600);
         }
@@ -125,8 +147,7 @@ function refactor() {
     }
     checkClick();
   }
-  mobile = false;
-  if ($(".tap").css("display") != "none") mobile = true;
+
   if (!mobile)
     $("body").keypress(() => {
       run();

@@ -10,38 +10,25 @@ body {
 }
 
 .color {
-  position: absolute;
-  height: 100%;
   width: 100%;
-  z-index: 1;
+  flex-grow: 1;
 }
-.img {
-  position: absolute;
-  z-index: -100;
-  height: 100%;
-  width: 100%;
-  background-size: 100% 100%;
-}
-.backimg {
-  position: absolute;
-  z-index: -200;
-  height: 100%;
-  width: 100%;
-  background-size: 100% 100%;
+.transit {
+  transition: all 0.5s;
 }
 .content {
-  position: relative;
-  z-index: 100;
-  width: 100%;
+  height: 100%;
+}
+.img {
+  background-size: 100% 100%;
+  flex-grow: 1;
+  display: flex;
 }
 .pure {
   background-color: var(--ourColor);
 }
 .impure {
   background-color: var(--transparentColor);
-}
-.warning {
-  background-color: var(--transparentRed);
 }
 .container {
   width: 50%;
@@ -50,10 +37,12 @@ body {
 #level-title {
   display: inline-block;
   font-family: "PT Sans";
+  text-shadow: 0.6rem 0.3rem #000;
   font-size: 7rem;
   font-weight: 700;
   margin: 5%;
   color: #07c1ff;
+  letter-spacing: 5px;
 }
 .row {
   margin-bottom: 10%;
@@ -118,11 +107,22 @@ body {
   margin-top: -1rem;
   margin-bottom: -1rem;
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .Gallifrey {
   animation: color-change ease-in-out 2.5s infinite;
   color: #ff4507;
 }
-
+.instagram,
+.linkedin {
+  background-color: #ffc107;
+}
+.instagram:hover {
+  color: white;
+}
 @keyframes color-change {
   0% {
     opacity: 0.1;
@@ -141,12 +141,7 @@ body {
   margin-top: -10px;
   height: 60px;
 }
-.wrapper {
-  position: relative;
-  padding-bottom: 4rem;
-  max-height: 100vh;
-  overflow: hidden;
-}
+
 footer {
   font-family: "Montserrat";
 }
@@ -159,33 +154,32 @@ footer {
 @media screen and (max-width: 872px) {
   #level-title {
     font-size: 5rem;
-    margin: 80px;
   }
   .container {
     width: 70%;
   }
 }
 @media screen and (max-width: 768px) {
-  .navbar {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .nav-link {
-    margin-top: 1rem;
-  }
   .tap {
     padding: 0.5rem;
+  }
+  .img {
+    background-size: cover;
+    background-position: center;
   }
 }
 
 @media screen and (max-width: 643px) {
   #level-title {
     font-size: 4rem;
+    text-shadow: 4px 2px #000;
+    letter-spacing: 3px;
   }
   .press {
     display: none;
   }
   .navbar {
+    flex-direction: column;
     justify-content: center;
   }
   .navbar-brand {
@@ -198,34 +192,16 @@ footer {
   .container {
     width: 60%;
   }
-  .navbar-brand {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .navbar-toggler {
-    margin-left: 50%;
-    margin-right: 50%;
-  }
-  .nav-link {
-    margin-left: 10%;
-  }
 }
 @media screen and (max-width: 530px) {
+  #level-title {
+    margin-bottom: 4rem;
+  }
   .row {
     --bs-gutter-x: 4rem;
   }
-  .container {
-    margin-left: 4rem;
-    margin-right: 4rem;
-  }
   .wrapper {
     margin-bottom: -2rem;
-  }
-}
-@media screen and (max-width: 440px) {
-  #level-title {
-    margin-left: 0;
-    margin-right: 0;
   }
   .btnn {
     width: 100px;
