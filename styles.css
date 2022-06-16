@@ -3,6 +3,15 @@
   --transparentColor: rgb(7, 69, 255, 0.3);
   --transparentRed: rgb(236, 0, 0, 0.6);
 }
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url("/img/10th.jpg") url("./img/10thn11th.jpg")
+    url("./img/12th.webp") url("./img/4th.webp");
+}
 body {
   text-align: center;
   margin: 0;

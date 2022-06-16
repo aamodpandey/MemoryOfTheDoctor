@@ -3,7 +3,7 @@ function doo() {
   no = Math.trunc(Math.random() * 10) % 4;
   return no;
 }
-let tardis;
+let tardis = new Audio("./sounds/TARDIS.mp3");
 mobile = false;
 if ($(".tap").css("display") != "none") mobile = true;
 arr = $(".btnn");
@@ -91,7 +91,7 @@ function refactor() {
     function checkClick() {
       $(".btnn").click((e) => {
         if (tardis) tardis.pause();
-        tardis = new Audio("./sounds/TARDIS.mp3");
+
         tardis.play();
         buttonPressed(e);
         color = e.target.id;
