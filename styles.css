@@ -243,13 +243,11 @@ footer {
     box-sizing: content-box;
   }
   .navbar-toggler,
-  .navbar-toggler * {
+  .navbar-toggler span {
     width: 20px;
     height: 20px;
   }
   .navbar-toggler * {
     position: relative;
-    top: -1.5px;
-    left: -2px;
   }
 }
