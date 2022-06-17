@@ -181,7 +181,7 @@ footer {
     background-size: cover;
     background-position: center;
   }
-  .navbar-toggler span {
+  .navbar-toggler img {
     width: 30px;
     height: 30px;
   }
@@ -243,7 +243,7 @@ footer {
     box-sizing: content-box;
   }
   .navbar-toggler,
-  .navbar-toggler span {
+  .navbar-toggler img {
     width: 20px;
     height: 20px;
   }
