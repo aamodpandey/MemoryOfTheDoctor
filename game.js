@@ -6,6 +6,36 @@ function doo() {
 let tardis = new Audio("./sounds/TARDIS.mp3");
 mobile = false;
 if ($(".tap").css("display") != "none") mobile = true;
+const att = $(".navbar-toggler")[0].attributes.style["value"];
+
+$(".navbar-toggler").click(() => {
+  $(".navbar-toggler").fadeOut({ duration: 100 });
+  $(".navbar-brand").animate(
+    {
+      "margin-bottom": "-2px",
+    },
+    400
+  );
+  if (!$("#collapsible").hasClass("show")) {
+    $("#collapsible").css("position", "relative");
+    $("#collapsible").animate({ top: "-6px" }, 400);
+  } else {
+  }
+  setTimeout(() => {
+    if ($("#collapsible").hasClass("show")) {
+      let y = $(".navbar").height();
+      $(".navbar-toggler").css({
+        top: y + 18,
+        transform: "rotate(180deg)",
+      });
+    } else {
+      console.log("in");
+      $(".navbar-toggler")[0].attributes.style["value"] = att;
+      $("#collapsible").css("top", "0");
+    }
+    $(".navbar-toggler").fadeIn({ duration: 200 });
+  }, 400);
+});
 arr = $(".btnn");
 function flash(arr, id) {
   let e = $(arr[id]);

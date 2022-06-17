@@ -56,6 +56,7 @@ body {
 .row {
   margin-bottom: 10%;
 }
+
 .btnn {
   display: inline-block;
   height: 200px;
@@ -98,7 +99,7 @@ body {
 }
 
 .pressed {
-  border-radius: 25px;
+  border-radius: 12%;
   width: 100%;
   height: 100%;
   box-shadow: 0 0 20px 5px white;
@@ -113,7 +114,7 @@ body {
 .navbar-brand {
   font-family: "Ubuntu";
   font-size: 3rem !important;
-  margin-top: -1rem;
+  margin-top: -0.9rem;
   margin-bottom: -1rem;
 }
 .wrapper {
@@ -176,6 +177,10 @@ footer {
     background-size: cover;
     background-position: center;
   }
+  .navbar-toggler span {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media screen and (max-width: 643px) {
@@ -183,6 +188,10 @@ footer {
     font-size: 4rem;
     text-shadow: 4px 2px #000;
     letter-spacing: 3px;
+  }
+  .navbar-toggler {
+    position: absolute;
+    top: 72px;
   }
   .press {
     display: none;
@@ -200,6 +209,9 @@ footer {
   }
   .container {
     width: 60%;
+  }
+  .img {
+    padding-top: 1.5rem;
   }
 }
 @media screen and (max-width: 530px) {
@@ -222,5 +234,18 @@ footer {
   }
   footer {
     margin-top: 2rem;
+  }
+  .navbar-toggler {
+    box-sizing: content-box;
+  }
+  .navbar-toggler,
+  .navbar-toggler * {
+    width: 20px;
+    height: 20px;
+  }
+  .navbar-toggler * {
+    position: relative;
+    top: -1.5px;
+    left: -2px;
   }
 }
