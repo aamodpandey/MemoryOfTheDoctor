@@ -23,14 +23,10 @@ $(".navbar-toggler").click(() => {
   }
   setTimeout(() => {
     if ($("#collapsible").hasClass("show")) {
-      let y = $(".navbar").height();
-      $(".navbar-toggler").css({
-        top: y + 18,
-        transform: "rotate(180deg)",
-      });
+      $(".navbar-toggler").addClass("puttoend");
     } else {
-      console.log("in");
       $(".navbar-toggler")[0].attributes.style["value"] = att;
+      $(".navbar-toggler").removeClass("puttoend");
       $("#collapsible").css("top", "0");
     }
     $(".navbar-toggler").fadeIn({ duration: 200 });

@@ -133,6 +133,10 @@ body {
 .instagram:hover {
   color: white;
 }
+.puttoend {
+  top: 100% !important;
+  transform: rotate(180deg);
+}
 @keyframes color-change {
   0% {
     opacity: 0.1;
@@ -191,7 +195,7 @@ footer {
   }
   .navbar-toggler {
     position: absolute;
-    top: 72px;
+    top: 85%;
   }
   .press {
     display: none;
