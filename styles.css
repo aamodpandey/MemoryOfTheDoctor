@@ -165,6 +165,9 @@ footer {
 .tap:hover {
   box-shadow: 0 0 4px 4px white;
 }
+.navbar-toggler {
+  display: flex;
+}
 @media screen and (max-width: 872px) {
   #level-title {
     font-size: 5rem;
@@ -199,6 +202,7 @@ footer {
   .navbar-toggler {
     position: absolute;
     z-index: 100;
+
     top: 85%;
   }
   .press {
