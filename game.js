@@ -7,13 +7,13 @@ let tardis = new Audio("./sounds/TARDIS.mp3");
 mobile = false;
 if ($(".tap").css("display") != "none") mobile = true;
 const att = $(".navbar-toggler")[0].attributes.style["value"];
-
+const mar = $(".navbar-brand").css("margin-bottom");
 $(".navbar-toggler").click(() => {
   $(".navbar-toggler").fadeOut({ duration: 200 });
   if ($(".navbar-toggler").hasClass("puttoend")) {
     $(".navbar-brand").animate(
       {
-        "margin-bottom": "4px",
+        "margin-bottom": mar,
       },
       {
         duration: 200,
