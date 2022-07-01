@@ -9,28 +9,37 @@ if ($(".tap").css("display") != "none") mobile = true;
 const att = $(".navbar-toggler")[0].attributes.style["value"];
 
 $(".navbar-toggler").click(() => {
-  $(".navbar-toggler").fadeOut({ duration: 100 });
-  $(".navbar-brand").animate(
-    {
-      "margin-bottom": "-2px",
-    },
-    400
-  );
-  if (!$("#collapsible").hasClass("show")) {
-    $("#collapsible").css("position", "relative");
-    $("#collapsible").animate({ top: "-6px" }, 400);
+  $(".navbar-toggler").fadeOut({ duration: 200 });
+  if ($(".navbar-toggler").hasClass("puttoend")) {
+    $(".navbar-brand").animate(
+      {
+        "margin-bottom": "4px",
+      },
+      {
+        duration: 200,
+      }
+    );
+    $("#collapsible").fadeOut({ duration: 600 });
+    $(".navbar-toggler")[0].attributes.style["value"] = att;
+    $(".navbar-toggler").removeClass("puttoend");
+    setTimeout(() => {
+      $("#collapsible").css({ transform: "translateY(6px)" });
+    }, 600);
+    $(".navbar-toggler").fadeIn({ duration: 600 });
   } else {
+    $("#collapsible").fadeIn({ duration: 200 });
+    $(".navbar-toggler").addClass("puttoend");
+    $(".navbar-brand").animate(
+      {
+        "margin-bottom": "-2px",
+      },
+      {
+        duration: 200,
+      }
+    );
+    $("#collapsible").css({ transform: "translateY(-6px)" });
   }
-  setTimeout(() => {
-    if ($("#collapsible").hasClass("show")) {
-      $(".navbar-toggler").addClass("puttoend");
-    } else {
-      $(".navbar-toggler")[0].attributes.style["value"] = att;
-      $(".navbar-toggler").removeClass("puttoend");
-      $("#collapsible").css("top", "0");
-    }
-    $(".navbar-toggler").fadeIn({ duration: 200 });
-  }, 400);
+  $(".navbar-toggler").fadeIn({ duration: 400 });
 });
 arr = $(".btnn");
 function flash(arr, id) {
