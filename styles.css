@@ -193,8 +193,12 @@ footer {
     text-shadow: 4px 2px #000;
     letter-spacing: 3px;
   }
+  .content {
+    margin-top: 1.5rem;
+  }
   .navbar-toggler {
     position: absolute;
+    z-index: 100;
     top: 85%;
   }
   .press {
@@ -214,9 +218,6 @@ footer {
   .container {
     width: 60%;
   }
-  .img {
-    padding-top: 1.5rem;
-  }
 }
 @media screen and (max-width: 530px) {
   #level-title {
@@ -225,6 +226,7 @@ footer {
   .row {
     --bs-gutter-x: 4rem;
   }
+
   .wrapper {
     margin-bottom: -2rem;
   }
