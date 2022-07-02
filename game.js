@@ -111,22 +111,25 @@ function refactor() {
   function leveler() {
     $("h1").text("Level " + lvl);
   }
+
   function run() {
     $("body").unbind("keypress");
     repetitive();
     leveler();
     function buttonPressed(e) {
-      $(e.target).append('<div class="pressed" style="opacity:0"> </div>');
+      const lrand = Math.floor(Math.random() * 1000);
+      const cursy = `${lrand} pressed`;
+      console.log(`${lrand}`);
+      $(e.target).append(`<div class='${cursy}' style="opacity:0"> </div>`);
       setTimeout(() => {
-        $(".pressed").remove();
+        $(`.${lrand}`).remove();
       }, 1200);
-      $(".pressed").animate({ opacity: 1 }, 700);
-      $(".pressed").animate({ opacity: 0 }, 500);
+      $(`.${lrand}`).animate({ opacity: 1 }, 700);
+      $(`.${lrand}`).animate({ opacity: 0 }, 500);
     }
     function checkClick() {
       $(".btnn").click((e) => {
-        if (tardis) tardis.pause();
-
+        tardis.currentTime = 0;
         tardis.play();
         buttonPressed(e);
         color = e.target.id;
