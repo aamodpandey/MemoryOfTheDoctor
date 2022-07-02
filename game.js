@@ -7,6 +7,14 @@ function doo() {
 let tardis = new Audio("./sounds/TARDIS.mp3");
 let wohoo = new Audio("./sounds/wohoo.mp3");
 mobile = false;
+function customTimeout(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
+
 if ($(".tap").css("display") != "none") mobile = true;
 const att = $(".navbar-toggler")[0].attributes.style["value"];
 const mar = $(".navbar-brand").css("margin-bottom");
@@ -22,7 +30,6 @@ $(".navbar-toggler").click(() => {
       }
     );
     $("#collapsible").fadeOut({ duration: 600 });
-    $(".navbar-toggler")[0].attributes.style["value"] = att;
     $(".navbar-toggler").removeClass("puttoend");
     setTimeout(() => {
       $("#collapsible").css({ transform: "translateY(6px)" });
@@ -103,7 +110,10 @@ let grecord = [];
 lvl = 1;
 function refactor() {
   c = 0;
-  function repetitive() {
+  async function repetitive() {
+    if (five) {
+      await customTimeout(500);
+    }
     b = doo();
     flash(arr, b);
     grecord.push(b);
@@ -111,6 +121,13 @@ function refactor() {
   interiortext = $("h1").html();
   function leveler() {
     $("h1").text("Level " + lvl);
+    if (five == true) {
+      $(".container").animate(
+        { boxShadow: "0 0 0", backgroundColor: "rgba(0,0,0,0)" },
+        400
+      );
+      five = false;
+    }
     if (lvl % 5 == 0) {
       five = true;
       wohoo.play();
@@ -121,10 +138,16 @@ function refactor() {
         `<h1 class="uniqid level-title" class="mt-4" style="color: rgb(255, 215, 0); margin:0">${lvl}</h1>`
       );
       $(".uniqid").addClass("lvl", 500);
-      $(".container").addClass("container-glow", {
-        duration: 500,
-        queue: false,
-      });
+      $(".container").animate(
+        {
+          boxShadow: "0px 0px 8px 20px #ff4507",
+          backgroundColor: "#ffc107",
+        },
+        {
+          duration: 400,
+          queue: false,
+        }
+      );
     }
   }
 
@@ -135,7 +158,6 @@ function refactor() {
     function buttonPressed(e) {
       const lrand = Math.floor(Math.random() * 1000);
       const cursy = `${lrand} pressed`;
-      console.log(`${lrand}`);
       $(e.target).append(`<div class='${cursy}' style="opacity:0"> </div>`);
       setTimeout(() => {
         $(`.${lrand}`).remove();
@@ -145,12 +167,6 @@ function refactor() {
     }
     function checkClick() {
       $(".btnn").click((e) => {
-        if (five == true) {
-          $(".container").removeClass("container-glow");
-          $(".container").css("box-shadow", "none");
-          $(".container").css("background-color", "");
-          five = false;
-        }
         tardis.currentTime = 0;
         tardis.play();
         buttonPressed(e);
