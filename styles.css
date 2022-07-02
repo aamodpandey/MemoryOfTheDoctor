@@ -43,7 +43,11 @@ body {
   width: 50%;
   max-width: 500px;
 }
-#level-title {
+.container-glow {
+  box-shadow: 0px 0px 8px 20px #ff4507;
+  background-color: wheat;
+}
+.level-title {
   display: inline-block;
   font-family: "PT Sans";
   text-shadow: 0.6rem 0.3rem #000;
@@ -137,6 +141,13 @@ body {
   top: 100% !important;
   transform: rotate(180deg);
 }
+.lvl {
+  transform: scale(1.3);
+  transition: all 1s;
+  color: #ff4507 !important;
+  -webkit-text-stroke: 4px #000;
+  text-shadow: 4px 2px 2px var(--bs-gray-900) !important;
+}
 @keyframes color-change {
   0% {
     opacity: 0.1;
@@ -169,7 +180,7 @@ footer {
   display: flex;
 }
 @media screen and (max-width: 872px) {
-  #level-title {
+  .level-title {
     font-size: 5rem;
   }
   .container {
@@ -191,7 +202,7 @@ footer {
 }
 
 @media screen and (max-width: 643px) {
-  #level-title {
+  .level-title {
     font-size: 4rem;
     text-shadow: 4px 2px #000;
     letter-spacing: 3px;
@@ -224,7 +235,7 @@ footer {
   }
 }
 @media screen and (max-width: 530px) {
-  #level-title {
+  .level-title {
     margin-bottom: 4rem;
   }
   .row {

@@ -1,9 +1,11 @@
 colors = ["green", "red", "yellow", "blue"];
+five = false;
 function doo() {
   no = Math.trunc(Math.random() * 10) % 4;
   return no;
 }
 let tardis = new Audio("./sounds/TARDIS.mp3");
+let wohoo = new Audio("./sounds/wohoo.mp3");
 mobile = false;
 if ($(".tap").css("display") != "none") mobile = true;
 const att = $(".navbar-toggler")[0].attributes.style["value"];
@@ -106,10 +108,24 @@ function refactor() {
     flash(arr, b);
     grecord.push(b);
   }
-  interiortext = "";
   interiortext = $("h1").html();
   function leveler() {
     $("h1").text("Level " + lvl);
+    if (lvl % 5 == 0) {
+      five = true;
+      wohoo.play();
+      level = $("h1").text();
+      level = level.slice(6);
+      $("h1").text("Level ");
+      $(".level-title").append(
+        `<h1 class="uniqid level-title" class="mt-4" style="color: rgb(255, 215, 0); margin:0">${lvl}</h1>`
+      );
+      $(".uniqid").addClass("lvl", 500);
+      $(".container").addClass("container-glow", {
+        duration: 500,
+        queue: false,
+      });
+    }
   }
 
   function run() {
@@ -129,6 +145,12 @@ function refactor() {
     }
     function checkClick() {
       $(".btnn").click((e) => {
+        if (five == true) {
+          $(".container").removeClass("container-glow");
+          $(".container").css("box-shadow", "none");
+          $(".container").css("background-color", "");
+          five = false;
+        }
         tardis.currentTime = 0;
         tardis.play();
         buttonPressed(e);
