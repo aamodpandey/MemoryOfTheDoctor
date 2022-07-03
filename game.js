@@ -16,7 +16,6 @@ function customTimeout(ms) {
 }
 
 if ($(".tap").css("display") != "none") mobile = true;
-const att = $(".navbar-toggler")[0].attributes.style["value"];
 const mar = $(".navbar-brand").css("margin-bottom");
 $(".navbar-toggler").click(() => {
   $(".navbar-toggler").fadeOut({ duration: 200 });
@@ -29,15 +28,13 @@ $(".navbar-toggler").click(() => {
         duration: 200,
       }
     );
-    $("#collapsible").fadeOut({ duration: 600 });
-    $(".navbar-toggler").removeClass("puttoend");
+    $(".navbar-toggler").removeClass("puttoend", 0);
     setTimeout(() => {
       $("#collapsible").css({ transform: "translateY(6px)" });
-    }, 600);
+    }, 200);
     $(".navbar-toggler").fadeIn({ duration: 600 });
   } else {
-    $("#collapsible").fadeIn({ duration: 200 });
-    $(".navbar-toggler").addClass("puttoend");
+    $(".navbar-toggler").addClass("puttoend", 0);
     $(".navbar-brand").animate(
       {
         "margin-bottom": "-2px",
