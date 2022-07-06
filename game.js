@@ -29,9 +29,6 @@ $(".navbar-toggler").click(() => {
       }
     );
     $(".navbar-toggler").removeClass("puttoend", 0);
-    setTimeout(() => {
-      $("#collapsible").css({ transform: "translateY(6px)" });
-    }, 200);
     $(".navbar-toggler").fadeIn({ duration: 600 });
   } else {
     $(".navbar-toggler").addClass("puttoend", 0);
@@ -43,7 +40,6 @@ $(".navbar-toggler").click(() => {
         duration: 200,
       }
     );
-    $("#collapsible").css({ transform: "translateY(-6px)" });
   }
   $(".navbar-toggler").fadeIn({ duration: 400 });
 });
