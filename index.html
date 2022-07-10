@@ -23,6 +23,10 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -40,31 +44,71 @@
             <img src="./img/planet.svg" class="nav-icon" alt="" />
             <span class="Gallifrey">Gallifrey</span></a
           >
-
+          <!--  -->
           <button
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapsible"
             class="btn navbar-toggler align-items-center"
-            style="background-color: #ffc107"
+            style="background-color: var(--ourYellow)"
           >
             <img src="./img/down.svg" alt="" />
           </button>
+
+          <!--  -->
           <div
             class="collapse navbar-collapse"
             id="collapsible"
             style="justify-content: flex-end"
           >
             <a
-              target="_blank"
+              role="button"
               class="nav-link"
               style="flex-grow: 0"
-              href="https://drive.google.com/file/d/1X0W4rIV6ugs6LSMDeUkm3gm2PaGnuTD3/view"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
               ><h6 class="display-6" style="font-size: 1.8rem; color: green">
                 Game Instructions
               </h6></a
             >
           </div>
+          <!-- Button trigger modal -->
+
+          <div class="modal fade" id="exampleModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title display-6" id="exampleModalLabel">
+                    Game Instructions
+                  </h5>
+                  <div>
+                    <i
+                      role="button"
+                      data-bs-dismiss="modal"
+                      class="bi bi-x-circle-fill btnn-close position-relative"
+                    ></i>
+                  </div>
+                </div>
+                <div class="modal-body px-5 py-4">
+                  This Simon game flashes one of the four coloured buttons as
+                  you progress through the levels, and at each level you have to
+                  remember the buttons pressed in previous levels, followed by
+                  the currently flashed button. For eg- Level 1- Red btn
+                  flashes. You press it and move to Level 2. Just then, another
+                  one flashes, say Blue. So you press Red, then Blue. Then comes
+                  Level 3, another flash say blue, again. You press Red, Blue,
+                  Blue. This is the way you progress. There's one check keeping
+                  you from pressing the buttons too quickly. You do not have to
+                  press the same button again if it still has the TARDIS
+                  flashing inside it. (the TARDIS is the blue box that flashes
+                  when you click on a button while the game is running) So, wait
+                  for the TARDIS to disappear, then press the button.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal ends -->
         </div>
       </div>
       <div class="img">

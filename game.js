@@ -231,3 +231,14 @@ function refactor() {
     });
 }
 refactor();
+// Button stuff
+$(".btnn-close").hover(
+  function () {
+    $(this).removeClass("bi-x-circle-fill");
+    $(this).addClass("bi-x-circle");
+  },
+  function () {
+    $(this).removeClass("bi-x-circle");
+    $(this).addClass("bi-x-circle-fill");
+  }
+);
