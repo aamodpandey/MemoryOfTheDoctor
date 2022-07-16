@@ -308,6 +308,9 @@ footer p {
   .container {
     width: 60%;
   }
+  .nav-link {
+    transform: translateY(-0.3rem);
+  }
 }
 @media screen and (max-width: 530px) {
   .level-title {
