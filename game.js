@@ -61,7 +61,6 @@ function imgColor(id) {
     $(".img").removeClass(classapplied);
   }
   $(".img").animate({ opacity: 1 }, 1000);
-  $("h1").animate({ color: "#FFD700" }, { duration: 1000 });
   classapplied = d[id];
 }
 origtext = "Level 1";
@@ -78,6 +77,7 @@ async function flashNrestore(newtext) {
     $(".img").removeClass(dum[1]);
     $(".img").css("background-image", "");
   }
+  $(".high-score").fadeOut();
   let bgcolor = $("body").css("background-color");
   $(".color").addClass("transit");
   $(".color").css("background-color", "rgba(255, 0, 0, 0.5)");
@@ -113,6 +113,12 @@ function refactor() {
   }
   interiortext = $("h1").html();
   function leveler() {
+    if (HighScore(lvl)) {
+      $(".high-score").text(`HIGH SCORE! ${lvl}`);
+      $(".high-score").css({ opacity: 0 });
+      $(".high-score").animate({ opacity: 1 });
+    }
+
     $("h1").text("Level " + lvl);
     if (five == true) {
       $(".container").animate(
@@ -128,13 +134,13 @@ function refactor() {
       level = level.slice(6);
       $("h1").text("Level ");
       $(".level-title").append(
-        `<h1 class="uniqid level-title" class="mt-4" style="color: rgb(255, 215, 0); margin:0">${lvl}</h1>`
+        `<h1 class="uniqid level-title" class="mt-4" style="color:#3536e6 ; margin:0">${lvl}</h1>`
       );
       $(".uniqid").addClass("lvl", 500);
       $(".container").animate(
         {
-          boxShadow: "0px 0px 8px 20px #ff4507",
-          backgroundColor: "#ffc107",
+          boxShadow: "0px 0px 8px 20px #3536e6",
+          backgroundColor: "#775b59",
         },
         {
           duration: 400,
@@ -242,3 +248,14 @@ $(".btnn-close").hover(
     $(this).addClass("bi-x-circle-fill");
   }
 );
+// High Scores
+function HighScore(score) {
+  let currHigh = localStorage.getItem("high");
+  console.log(currHigh, score);
+  if (Number(currHigh) < score) {
+    localStorage.setItem("high", score);
+
+    return true;
+  }
+  return false;
+}
