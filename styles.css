@@ -71,7 +71,7 @@ body {
 }
 .tap {
   background-color: #3536e6;
-  border: 0.0555rem solid #fbfef9;
+  border: 0;
   border-radius: 0.555rem;
   box-shadow: inset 0 0 0.555rem #000000;
   color: #fbfef9;
@@ -212,7 +212,7 @@ footer p {
   max-width: 275px;
 }
 .tap:hover {
-  box-shadow: inset 0 0 0.0555rem #000000, 0 0 0.222rem 0.222rem #fbfef9;
+  opacity: 0.8;
 }
 .navbar-toggler {
   display: flex;
