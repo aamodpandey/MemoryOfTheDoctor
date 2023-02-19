@@ -33,7 +33,7 @@ body {
   color: #775b59;
 }
 
-.color {
+#color {
   width: 100%;
   flex-grow: 1;
 }
@@ -43,13 +43,13 @@ body {
 .content {
   height: 100%;
 }
-.img {
+#img {
   background-size: 100% 100%;
   flex-grow: 1;
   display: flex;
 }
 
-.container {
+#container {
   width: 50%;
   max-width: 500px;
   box-shadow: 0px 0px 0px 0px;
@@ -64,12 +64,12 @@ body {
   color: #3536e6;
   -webkit-text-stroke: 0.0555rem #bbe6e4;
 }
-.high-score {
+#high-score {
   transform: translateY(-2rem);
   color: burlywood;
   font-weight: 600;
 }
-.tap {
+#tap {
   background-color: #3536e6;
   border: 0;
   border-radius: 0.555rem;
@@ -81,14 +81,14 @@ body {
   margin-bottom: 10%;
 }
 
-.btnn {
+.button {
   display: inline-block;
   height: 200px;
   width: 200px;
   border: 0.555rem solid black;
   border-radius: 20%;
 }
-.btnn-close {
+.button-close {
   position: absolute;
   left: 1.07rem;
   top: -1.65rem;
@@ -110,7 +110,7 @@ body {
 .four {
   background-image: url("img/12th.webp");
 }
-.btnn:hover {
+.button:hover {
   opacity: 0.8;
 }
 .red {
@@ -208,10 +208,10 @@ footer p {
   color: #fbfef9;
   font-size: 1.2rem;
 }
-.tap {
+#tap {
   max-width: 275px;
 }
-.tap:hover {
+#tap:hover {
   opacity: 0.8;
 }
 .navbar-toggler {
@@ -250,15 +250,15 @@ footer p {
   .level-title {
     font-size: 5rem;
   }
-  .container {
+  #container {
     width: 70%;
   }
 }
 @media screen and (max-width: 768px) {
-  .tap {
+  #tap {
     padding: 0.5rem;
   }
-  .img {
+  #img {
     background-size: cover;
     background-position: center;
   }
@@ -301,11 +301,11 @@ footer p {
     margin-right: auto !important;
     margin-left: auto !important;
   }
-  .btnn {
+  .button {
     width: 150px;
     height: 150px;
   }
-  .container {
+  #container {
     width: 60%;
   }
   .nav-link {
@@ -323,7 +323,7 @@ footer p {
   .wrapper {
     margin-bottom: -2rem;
   }
-  .btnn {
+  .button {
     width: 100px;
     height: 100px;
   }
