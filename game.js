@@ -56,7 +56,7 @@ function leveler() {
   }
   h1.text("Level " + lvl);
   unsetFive();
-  if (lvl % 5 === 0) {
+  if (lvl % 5 === 0 && lvl!=0) {
     five = true;
     wohoo.play();
     h1.text("Level ");
