@@ -87,6 +87,7 @@ body {
   width: 200px;
   border: 0.555rem solid black;
   border-radius: 20%;
+  transition: all 0.4s;
 }
 .button-close {
   position: absolute;
