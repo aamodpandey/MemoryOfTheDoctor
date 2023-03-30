@@ -4,6 +4,9 @@
   --ourRed: #ff4507;
   --accentBlue: #07c1ff;
 }
+*{
+  font-size:18px;
+}
 body::after {
   position: absolute;
   width: 0;
