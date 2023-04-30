@@ -153,6 +153,8 @@ body {
 .navbar-brand {
   font-size: 2.5rem;
   text-transform: uppercase;
+  transition: all 0.25s ease-out;
+  white-space: normal !important;
 }
 .wrapper {
   display: flex;
@@ -166,9 +168,7 @@ body {
   font-weight: 700;
   display: inline-block;
 }
-.navbar-brand {
-  transition: all 0.25s ease-out;
-}
+
 .navbar-brand:hover {
   transform: scale(1.1);
   opacity: 0.8;
@@ -352,5 +352,10 @@ footer p {
 @media screen and (max-width: 430px) {
   #container {
     width: 57%;
+  }
+}
+@media screen and (max-width: 570px) {
+  .collapsed {
+    transform: translateY(1rem);
   }
 }
