@@ -223,6 +223,9 @@ footer p {
   display: flex;
   box-shadow: inset 0 0 0.25rem #000000;
 }
+.navbar-toggler:focus{
+  box-shadow: inset 0 0 0.25rem #000000;
+}
 .modal-header {
   border: 0.0625rem solid var(--ourYellow);
   background-color: var(--ourYellow);
