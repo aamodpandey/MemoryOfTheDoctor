@@ -5,10 +5,10 @@ export default function imgColor(id) {
     if (d[id] === classapplied) return;
     if (classapplied === "") classapplied = d[id];
     img.addClass(d[id]);
-    img.css("opacity", "0.5");
+    img.css("opacity", "0.2");
     if (d[id] !== classapplied) {
         img.removeClass(classapplied);
     }
-    img.animate({ opacity: 1 }, 1000);
+    img.animate({ opacity: 1 }, { duration: 500, queue: false });
     classapplied = d[id];
 }
